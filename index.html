@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="D:\Web Practice\Css Illustrations\blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href='https://fonts.googleapis.com/css?family=Kaushan Script' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Mochiy+Pop+P+One&family=Stick+No+Bills:wght@200;300;400;500;600;700;800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url("https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80");
+    background-size: 100% 100%;
+}
+main .container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+main .container .img{
+    height: 250px;
+    width: 250px;
+    background-image: url("https://www.dropbox.com/s/z90emwr0ws28l1k/1641920538621.png?dl=1");
+    background-size: 100% 100%;
+}
+main .container h1{
+    text-align: center;
+    width: 100%;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    color: #a7adfdc7;
+    letter-spacing: 2.5px;
+}
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0e0c0d;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    height: 60px;
+    transform: translateY(-100%);
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+    padding: 0 10px;
+}
+header .logoholder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+header .logoholder .logo{
+    height: 35px;
+    width: 35px;
+    background-image: url("https://www.dropbox.com/s/ra3aoidbdf3s6mw/1641916257987.png?dl=1");
+    background-size: 100% 100%;
+}
+header .logoholder .name{
+    background: -webkit-linear-gradient(45deg, #2f3192, #00aced);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Stick No Bills', sans-serif;
+    font-weight: 800;
+    margin-left: 10px;
+    font-size: 35px;
+}
+.hambox{
+    padding: 20px;
+    z-index: 20;
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.hambox .over{   
+    background-color: #fc91050c;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: circle(0% at 50% 50%);
+    transition: all 1s ease-in-out;
+}
+.hambox:hover .over{
+    clip-path: circle(100% at 50% 50%);
+    background: -webkit-linear-gradient(45deg, #0067b4, #00aced);
+}
+.hambox:hover i{
+    background: -webkit-linear-gradient(45deg, #2f3192, #283595);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hambox i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: -webkit-linear-gradient(45deg, #2f3192, #00aced);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 1s ease-in-out;
+}
+.sidenav{
+    height:90vh;
+    width: 60vw;
+    position:fixed;
+    top: 0;
+    right: 0;
+    background-color:#0e0c0d;
+    z-index: 25;
+    overflow: hidden;
+    transform-origin: top;
+    transform: rotate(-60deg) translateX(150%);
+    transition: all 1.5s ease-in-out;
+}
+.sidenav .navbox{
+    height: 90%;
+    width: 90%;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    transform: translateX(150%);
+    transition: all 1.5s ease-in-out;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.sidenav .navbox .nv{
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+.sidenav .navbox .nv a{
+    text-decoration: none;
+    color:#b1e5f8;
+    padding: 10px;
+    transition: all .5s ease;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+}
+.sidenav .navbox .nv .line{
+    width: 70%;
+    background: -webkit-linear-gradient(45deg, #0067b4, #00aced);
+    height: 2px;
+    transform: translateX(-120%);
+    margin-top: 7px;
+    transition: all 1s ease;
+}
+.sidenav .navbox .nv:nth-child(1) .line{
+    width: 50%;
+}
+.sidenav .navbox .nv:nth-child(4) .line{
+    width: 50%;
+}
+.sidenav .navbox .nv:nth-child(6) .line{
+    width: 80%;
+}
+.sidenav .navbox .nv:hover a{
+    color: rgba(177, 229, 248, 0.747);
+    font-family: 'Poppins', sans-serif;
+}
+.sidenav .navbox .nv:hover .line{
+    transform: translateX(0%);
+}
+.sidenav .closebtn{
+    position: absolute;
+    top: 25px;
+    right:15px;
+    padding: 0px;
+    cursor: pointer;
+    font-size: 1.4rem;   
+    transition: all 0.5s ease-in-out;
+    background: -webkit-linear-gradient(45deg, #0067b4, #00aced);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidenav .closebtn:hover{
+    background: -webkit-linear-gradient(45deg, #2f3192, #283595);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.writer{
+    background-color: #000422;
+    padding: 30px 0px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+}
+.writer .author{
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.writer .author .pic{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-image: url("https://www.dropbox.com/s/z1c56gzcgo5p5vq/images%20%2810%29%20%2817%29.jpeg?dl=1");
+    background-size: 100% 100%;
+    box-shadow: 3px 3px 0 0 #000;
+}
+.writer .author .nm{
+    background: -webkit-linear-gradient(45deg, #78798f, #72838a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Stick No Bills', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+.writer .content{
+    margin-top: 25px;
+    width: 90%;
+}
+.writer .content p{ 
+    font-family: 'Merriweather', serif;
+    background: -webkit-linear-gradient(45deg, #e4e6ff, #dff2fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    letter-spacing: 1px;
+}
+.writer .content b{
+    font-family: 'Merriweather', serif;
+    background: -webkit-linear-gradient(45deg, #2f3192, #00aced);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #dff2fa;
+    font-size: 1.2rem;
+    font-weight: 900;
+    line-height: 1.5rem;
+    letter-spacing: 2px;
+}
+.end{
+    padding: 50px 10px;
+    background: -webkit-linear-gradient(45deg, #2f3192, #00aced);
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Stick No Bills', sans-serif;
+}
+.end b{
+    background: -webkit-linear-gradient(45deg, #000013, #00141b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    margin-left: 10px;
+    font-size: 35px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.end p{
+    margin-top: 5px;
+    font-size: 20px;
+    line-height: 1.5rem;
+    text-align: center;
+}
+.end .icons{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 45%;
+    margin-top: 35px;
+}
+.end .icons i{
+    display: grid;
+    place-items: center;
+    background: #fff;
+	mix-blend-mode: screen;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.writer p{
+    font-family: 'Merriweather', serif;
+    background: -webkit-linear-gradient(45deg, #e4e6ff, #dff2fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+@media (min-width:1200px){
+    header{
+        height: 90px;
+    }
+    header .logoholder{
+        padding: 0 20px;
+    }
+    header .logoholder .logo{
+        height: 50px;
+        width: 50px;
+    }
+    header .logoholder .name{
+        margin-left:17px;
+        font-size: 50px;
+    }
+    main .container{
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 90%;
+    }
+    main .container .img{
+        height: 350px;
+        width: 350px;
+    }
+    main .container h1{
+        text-align: center;
+        width: 60%;
+        letter-spacing: 2.5px;
+        font-size: 60px;
+    }
+    .hambox{
+        padding: 30px;
+        font-size: 35px;
+    }
+    .sidenav{
+        width: 25vw;
+    }
+    .sidenav .closebtn{
+        font-size: 35px;
+    }
+    .writer .author .pic{
+        height: 75px;
+        width: 75px;
+    }
+    .writer .author .nm{
+        font-size: 1.7rem;
+        letter-spacing: 2px;
+        margin-left: 15px;
+    }
+    .writer .author{
+        justify-content: left;
+    }
+    
+    .writer .content{
+        margin-top: 50px;
+        width: 85%;
+    }
+    .writer .content p{
+        font-size: 1rem;
+        line-height: 1.7rem;
+        letter-spacing: 1.5px;
+    }
+    .writer .content b{
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+    }
+    .end b{
+        font-size: 55px;
+        letter-spacing: 3px;
+    }
+    .end p{
+        margin-top: 10px;
+        font-size: 30px;
+        line-height: 2rem;
+    }
+    .end .icons{ 
+        width: 15%;
+        margin-top: 45px;
+    }
+    .end .icons i{
+        display: grid;
+        place-items: center;
+        background: #fff;
+        mix-blend-mode: screen;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+    .writer p{
+        font-size: 1rem;
+        line-height: 1.5rem;
+        margin-top: 25px;
+        letter-spacing: 1.5px;
+    }
+}
+    </style>
+    <main>
+        <div class="container">
+            <div class="img"></div>
+            <h1>Everyone Can't Be In Your Front Row</h1>
+        </div>
+    </main>
+    <div class="sidenav" id="sidenv">
+        <div class="navbox" id="nb">
+            <div class="nv nv1">
+                <a href="#hm"><i class="fa fa-home"></i>&nbsp Home</a>
+                <div class="line"></div>
+            </div>
+            <div class="nv nv1">
+                <a href="#fm"><i class="fas fa-clipboard-list"></i>&nbsp Features</a>
+                <div class="line"></div>
+            </div>
+            <div class="nv nv1">
+                <a href="#sm"><i class="fas fa-shopping-bag"></i>&nbsp Shopping</a>
+                <div class="line"></div>
+            </div>
+            <div class="nv nv1">
+                <a href="#fam"><i class="fas fa-question-circle"></i>&nbsp F.A.Q</a>
+                <div class="line"></div>
+            </div>
+            <div class="nv nv1">
+                <a href="#fdm"><i class="fas fa-comment-dots"></i>&nbsp Feedback</a>
+                <div class="line"></div>
+            </div>
+            <div class="nv nv1">
+                <a href="#cm"><i class="fas fa-headset"></i>&nbsp Contact Us</a>
+                <div class="line"></div>
+            </div>
+        </div>
+        <div class="closebtn" onclick="cl()">
+            <i class="far fa-times-circle"></i>
+        </div>
+    </div>
+    <header id="head">
+        <div class="logoholder">
+            <div class="logo"></div>
+            <div class="name">SeaArticle</div>
+        </div>
+        <div class="menu">
+            <div class="hambox" id="ham" onclick="op()">
+                <div class="over"></div>
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <div class="writer">
+        <div class="author">
+            <div class="pic"></div>
+            <div class="nm">Posted By Anshika on 12 January, 2022</div>
+        </div>
+        <div class="content">
+            <p>
+                Human life is a stage with innumerable people playing different roles, and with such a diverse characters it becomes difficult for us sometimes to recongnise the true protagonist and antagonist in our stories, which often lead to disastrous endings.<br>
+            </p>
+            <b><br><br>Why Do We Need To Choose?</b>
+            <p>
+                <br>It's well said that life is a matter of choices and every choice that we make, makes us. And in this era when we often need someone's shoulder to lean on, someone to cry upon, someone to share our happy moments, it becomes very crucial to select very carefully whom we are letting in. As no one wants a gold painted copper, everyone seeks for  real gold.
+            </p>
+            <b><br><br>Whom To Choose?</b>
+            <p>
+                <br>Before starting gthe process of segregating people in your life, keep the following points in mind: <br><br>
+
+                i) Not everything that shines is a Gold<br>
+                ii) Some people in our life needs to be loved from afar<br>
+                iii) Sometimes holding on does a lot more damge than letting go.<br>
+                iv) Sometimes we have to become selfish and care a bit more about our feelings.<br>
+                v) Sometimes we have to distance ouselves to know where we stand in other's life. <br>
+                
+            </p>
+            <b><br><br>How To Choose?</b>
+            <p>
+                <br>There is nothing more heavenly than finding the right person to rely on, to cherish and to share our hopes and dreams with. But the dilemma that most of us faces is whom to choose? In our life we meet thousands of people snd it happens that no one among them really influenced us. But we can't just sit back, relax and wait for a miracle to happen. We need to find them. BUT HOW??<br>
+                First of all OBSERVE all of our relationships around. Pay ATTENTION and sort out on whom we can really lean on and on whom we can not. SEE who really encourages us, stayed with us in the darkest phase of our life, where even our shadow left us, who really appreciates us the way we are and accepts we with all of our flaws. And BRAVO! we have finded our set of right persons whom we can trust.
+            
+            <br><br><br><br>
+            In nutshell we can't change people who surrounds us but we can change our surroundings. So be wise and choose carefully whom to aloow to be seated in the FIRST ROW of our life and whom to allocate the balcony. Afterall we have limited number of first row seats and they deserved to be occupied our special ones.
+            </p>
+        </div>
+        <div class="end">
+            <b>Thank You</b>
+            <p>anshikathakur147@gmail.com<br>+91 7999999999</p>
+            <div class="icons">
+                <i class="fab fa-linkedin-in"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+            </div>        
+        </div>
+        <p>Copyright <i class="far fa-copyright"></i> Anshika 2022</p>
+    </div>
+    <script>
+        const head = document.getElementById('head');
+        window.onscroll = function(){bg()};
+        function bg(){
+            if(document.body.scrollTop>50 || document.documentElement.scrollTop>50){
+                head.style.transform = "translateY(0)";
+            }
+            else{
+                head.style.transform = "translateY(-100%)";
+            }
+        }
+        function op(){
+            sidenv.style.transform="rotate(0deg) translateX(0%)";
+            setTimeout(() =>{
+                nb.style.transform="translateX(0%)";
+            }, 700)
+        }
+        function cl(){
+            sidenv.style.transform="rotate(-60deg) translateX(150%)";
+            nb.style.transform="translateX(150%)";
+        }
+    </script>
+</body>
+</html>
